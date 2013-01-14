@@ -1,0 +1,21 @@
+#! /usr/bin/python
+# -*- coding: utf8 -*-
+
+#http://string-db.org/api/image/networkList?identifiers=4932.YML115C%0D4932.YJR075W%0D4932.YEL036C
+
+import urllib
+import sys
+
+# example genes 4932.YML115C 0D4932.YEL036C
+
+lst = sys.argv
+
+uri = 'http://string-db.org/api/image/network?identifiers='
+for i in lst[1:]:
+  uri=uri+i+"%0D"
+uri = uri[:-3]
+uri += "&limit=0"
+#print uri
+
+urllib.urlretrieve(uri, "output.png")
+

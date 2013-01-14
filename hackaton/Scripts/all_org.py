@@ -1,0 +1,55 @@
+#! /usr/bin/python
+import sets
+
+# all.txt -> list of orthologs 
+a = open("all.txt",'r')
+
+al = [x.split()[1:] for x in a.readlines()]
+a.close()
+
+
+#
+#files = ["D.txt","E.txt","H.txt","L.txt","Y.txt"]
+files = ["Y.txt","E.txt"]
+
+gene_list = []
+out_file = open("!grzyb_nicien.txt",'w')
+dic = {}
+
+
+for f in files:
+	g = open(f,'r').readlines()
+	h = [x.split()[1:] for x in g if len(x.split()) == 3]
+	gene_list.append([x[0] for x in h])
+	for x in h:
+		dic[x[0]] = x[1]
+
+
+
+
+for orto in al:
+	i = 0
+	out = []
+	for w in gene_list:
+		if set(orto)&set(w):
+			out+= list(set(orto)&set(w))
+			i+=1
+
+	if i == 2:
+		for x in out:
+			out_file.write(" ".join([x,dic[x]])+" ")
+		out_file.write("\n") 
+			
+
+
+
+
+
+
+	
+
+
+
+
+
+

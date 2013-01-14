@@ -1,0 +1,9 @@
+Paired orthologs of:
+
+S. cerevisiae &	C. elegans 		grzyb_nicien.txt
+C. elegans & D. melanogaster		mucha_nicien.txt
+D. melanogaster	& M. musculus		mucha_mysz.txt
+M. musculus & H. sapiens 		czlowiek_mysz.txt
+
+
+Performed using all_org.py
